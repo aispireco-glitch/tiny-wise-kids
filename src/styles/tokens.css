@@ -1,0 +1,119 @@
+/* ─────────────────────────────────────────────────────────────
+   Design Tokens — TinyWiseKids v3
+   Brand surface · MOTION_INTENSITY: high · VISUAL_DENSITY: med-low
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Palette (warm editorial — no purple, no AI purple-blue gradients) */
+  --c-yellow:        #FFD166;
+  --c-yellow-deep:   #F2B233;     /* CTA-ready, button-friendly */
+  --c-yellow-warm:   #FFB703;     /* brand accent text */
+  --c-yellow-soft:   #FFF3CC;
+  --c-yellow-glow:   #FFE599;
+
+  --c-teal:          #06C9A0;
+  --c-teal-deep:     #048A6E;     /* readable text on light bg */
+  --c-teal-soft:     #D0F7EE;
+
+  --c-coral:         #FF6B6B;
+  --c-coral-soft:    #FFE0E0;
+
+  /* New: replaces purple — warm terracotta + sand */
+  --c-clay:          #E07856;
+  --c-clay-deep:     #B8553A;
+  --c-clay-soft:     #FBE4DA;
+
+  --c-sand:          #D9B384;
+  --c-sand-soft:     #F3E6D2;
+
+  /* Neutrals — warm cream system, not flat white */
+  --c-ink:           #1A1F2E;
+  --c-ink-mid:       #3E4759;
+  --c-ink-soft:      #6B7384;
+  --c-ink-mute:      #A0A6B2;
+
+  --c-paper:         #FBF7EE;     /* primary bg — warm cream, not #fff */
+  --c-paper-deep:    #F2EBDC;     /* alt bg */
+  --c-paper-edge:    #E8DFC9;     /* hairline borders */
+  --c-paper-warm:    #FFF9EC;     /* card surface */
+
+  /* Inverse — deep ink for dark sections */
+  --c-night:         #141926;
+  --c-night-soft:    #1F2638;
+  --c-night-line:    rgba(255, 255, 255, 0.08);
+
+  /* ── Type */
+  --f-display: 'Baloo 2', system-ui, sans-serif;
+  --f-body:    'Nunito', system-ui, sans-serif;
+
+  /* Modular scale — 1.25 ratio, capped on mobile via clamp */
+  --t-xs:   clamp(11px, 0.75vw, 12px);
+  --t-sm:   clamp(13px, 0.9vw, 14px);
+  --t-base: clamp(15px, 1.05vw, 17px);
+  --t-lg:   clamp(18px, 1.3vw, 20px);
+  --t-xl:   clamp(22px, 1.7vw, 26px);
+  --t-2xl:  clamp(28px, 2.4vw, 36px);
+  --t-3xl:  clamp(36px, 3.6vw, 52px);
+  --t-4xl:  clamp(48px, 5vw, 76px);
+  --t-5xl:  clamp(60px, 7vw, 108px);
+
+  /* ── Spacing — 8pt rhythm with breathing room */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  24px;
+  --s-6:  32px;
+  --s-7:  48px;
+  --s-8:  64px;
+  --s-9:  96px;
+  --s-10: 128px;
+
+  /* ── Radii — soft but not bubble-y */
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --r-pill: 999px;
+
+  /* ── Shadows — soft, layered, not dribbble glow */
+  --sh-1: 0 1px 2px rgba(26, 31, 46, 0.04),
+          0 2px 8px rgba(26, 31, 46, 0.04);
+  --sh-2: 0 2px 4px rgba(26, 31, 46, 0.05),
+          0 8px 24px rgba(26, 31, 46, 0.06);
+  --sh-3: 0 4px 12px rgba(26, 31, 46, 0.06),
+          0 16px 48px rgba(26, 31, 46, 0.10);
+  --sh-warm: 0 8px 32px rgba(224, 120, 86, 0.18);
+  --sh-yellow: 0 8px 24px rgba(242, 178, 51, 0.30);
+
+  /* ── Motion (Emil framework: subtle on high-freq, expressive on low-freq) */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --d-fast:   140ms;
+  --d-base:   260ms;
+  --d-slow:   480ms;
+  --d-cinema: 900ms;
+
+  /* ── Layout */
+  --w-max: 1240px;
+  --pad-x: clamp(20px, 4vw, 56px);
+  --nav-h: 72px;
+
+  /* ── z-index scale */
+  --z-base:  1;
+  --z-raise: 10;
+  --z-nav:   100;
+  --z-hero:  50;
+  --z-modal: 1000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --d-fast: 0ms;
+    --d-base: 0ms;
+    --d-slow: 0ms;
+    --d-cinema: 0ms;
+  }
+}
