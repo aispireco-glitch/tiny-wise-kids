@@ -1,0 +1,51 @@
+# Netlify configuration — auto-detected when the repo is linked.
+# Site: tinywisekids.com
+
+[build]
+  command       = "npm run build"
+  publish       = "dist"
+
+[build.environment]
+  NODE_VERSION  = "22"
+
+# ── Security headers (apply to every response) ─────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options          = "SAMEORIGIN"
+    X-Content-Type-Options   = "nosniff"
+    Referrer-Policy          = "strict-origin-when-cross-origin"
+    Permissions-Policy       = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+# ── HTML: never cached aggressively so content updates show right away
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# ── Hashed assets (Vite emits hashes in filenames): cache for 1 year
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ── Images in /hero/ and /printables/ — long cache, immutable file names
+[[headers]]
+  for = "/hero/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+# ── Redirect /privacy → home for now (placeholder until real privacy page)
+[[redirects]]
+  from   = "/privacy"
+  to     = "/#privacy"
+  status = 302
+
+# ── SPA-friendly: any unknown URL falls back to index (only if intended)
+# Disabled by default — get-printable.html is a real file. Re-enable if you
+# add client-side routing later.
+# [[redirects]]
+#   from   = "/*"
+#   to     = "/index.html"
+#   status = 200
