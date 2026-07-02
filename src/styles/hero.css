@@ -182,35 +182,35 @@
      top-right:    coin
      center:       jar (focal, largest)
      bottom-left:  badge
-   Sizes are tuned so the jar's extended vertical footprint (portrait 1:1.45)
-   still leaves 6-8% clearance around every accent. */
+   All sizes bumped +20% vs previous baseline; positions retuned to keep
+   inter-item gaps ≥ 2% and account for the jar's portrait footprint. */
 .hero-float-jar {
-  width: 46%;                  /* reduced from 54% to free the bottom corners */
-  max-width: 310px;
-  top: 22%;
-  left: 30%;                   /* centered around 53% → won't reach corners */
+  width: 55%;                   /* +20% (was 46%) */
+  max-width: 372px;             /* +20% (was 310) */
+  top: 18%;                     /* raised from 22% so bottom stays inside stage */
+  left: 26%;
   z-index: 3;
   filter: drop-shadow(0 28px 48px rgba(26, 31, 46, 0.22));
 }
 .hero-float-coin {
-  width: 22%;
-  max-width: 160px;
-  top: 3%;
-  right: 3%;                   /* pushed further into the top-right corner */
+  width: 26%;                   /* +20% (was 22%) */
+  max-width: 192px;             /* +20% (was 160) */
+  top: 1%;
+  right: 0%;                    /* flush to the right edge for max clearance */
   z-index: 4;
 }
 .hero-float-piggy {
-  width: 24%;
-  max-width: 170px;
-  top: 6%;                     /* raised so piggy sits clearly above the jar */
-  left: 0%;
+  width: 29%;                   /* +20% (was 24%) */
+  max-width: 204px;             /* +20% (was 170) */
+  top: 3%;                      /* higher so it clears the jar horizontally */
+  left: -2%;                    /* slight bleed off the left edge, playful */
   z-index: 5;
 }
 .hero-float-badge {
-  width: 22%;
-  max-width: 160px;
-  bottom: 4%;
-  left: 3%;                    /* MOVED from right:8% to left:3% (no overlap) */
+  width: 26%;                   /* +20% (was 22%) */
+  max-width: 192px;             /* +20% (was 160) */
+  bottom: 2%;
+  left: 0%;                     /* flush to the left, opposite corner from coin */
   z-index: 5;
 }
 
