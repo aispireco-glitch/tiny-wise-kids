@@ -176,37 +176,41 @@
 .hero.is-loaded .hero-float-piggy { transition-delay: 0.75s; }
 .hero.is-loaded .hero-float-badge { transition-delay: 0.9s; }
 
-/* Anchors — top/left/right/bottom in % so each item sits in its own quadrant.
-   JS adds drift + parallax on top of these base positions.
-   Distribution = diagonal flow so the eye travels: coin (top-right) →
-   jar (center, focal) → piggy (mid-left) → badge (bottom-right). */
+/* Anchors — 4 non-overlapping quadrants + generous gutters so drift never
+   causes visual collision:
+     top-left:     piggy
+     top-right:    coin
+     center:       jar (focal, largest)
+     bottom-left:  badge
+   Sizes are tuned so the jar's extended vertical footprint (portrait 1:1.45)
+   still leaves 6-8% clearance around every accent. */
 .hero-float-jar {
-  width: 54%;
-  max-width: 360px;
-  top: 24%;
-  left: 28%;
+  width: 46%;                  /* reduced from 54% to free the bottom corners */
+  max-width: 310px;
+  top: 22%;
+  left: 30%;                   /* centered around 53% → won't reach corners */
   z-index: 3;
   filter: drop-shadow(0 28px 48px rgba(26, 31, 46, 0.22));
 }
 .hero-float-coin {
-  width: 26%;
-  max-width: 180px;
-  top: 2%;
-  right: 6%;
+  width: 22%;
+  max-width: 160px;
+  top: 3%;
+  right: 3%;                   /* pushed further into the top-right corner */
   z-index: 4;
 }
 .hero-float-piggy {
-  width: 28%;
-  max-width: 185px;
-  top: 14%;       /* moved up from bottom 8% → top 14% */
-  left: -2%;
+  width: 24%;
+  max-width: 170px;
+  top: 6%;                     /* raised so piggy sits clearly above the jar */
+  left: 0%;
   z-index: 5;
 }
 .hero-float-badge {
-  width: 26%;
-  max-width: 170px;
-  bottom: 6%;
-  right: 8%;
+  width: 22%;
+  max-width: 160px;
+  bottom: 4%;
+  left: 3%;                    /* MOVED from right:8% to left:3% (no overlap) */
   z-index: 5;
 }
 

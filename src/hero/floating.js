@@ -67,9 +67,10 @@ export function initHeroFloating() {
       const driftX = REDUCE_MOTION ? 0 : Math.sin(time * 0.55 * s.freq + s.phase)           * s.driftAmt;
       const driftY = REDUCE_MOTION ? 0 : Math.cos(time * 0.42 * s.freq + s.phase * 1.3)     * s.driftAmt * 0.9;
 
-      // Parallax — bumped multipliers so depth difference between items is felt
-      const parX = mouse.x * s.depth * 32;
-      const parY = mouse.y * s.depth * 22;
+      // Parallax — tuned so max movement stays within each item's quadrant
+      // and never causes overlap between neighboring floats
+      const parX = mouse.x * s.depth * 20;
+      const parY = mouse.y * s.depth * 14;
 
       // Gentle rotation tied to time for liveliness (4° amplitude)
       const rot = s.baseRot + (REDUCE_MOTION ? 0 : Math.sin(time * 0.4 * s.freq + s.phase) * 4);
